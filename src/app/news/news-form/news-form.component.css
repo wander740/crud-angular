@@ -1,0 +1,52 @@
+.marginForm{
+  margin: .4rem;
+}
+
+.nameNews{
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.newsForm{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.newsForm_form{
+  width: 100%;
+}
+
+#name{
+  width: 100%;
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: 2px solid #f0f0f0;
+  padding: 4px;
+  margin-bottom: 1.5rem;
+}
+
+#nam:focus{
+  border: 2px solid #62aef4;
+}
+
+#name::placeholder{
+  color: #8d8d8d;
+}
+
+.buttonNews{
+  display: flex;
+  justify-content: center;
+}
+
+#category{
+  margin-top: 5px;
+  float: left;
+  width: 100%;
+}
+
+@media screen and (min-width: 950px){
+  .newsForm{
+    width: 900px;
+  }
+}

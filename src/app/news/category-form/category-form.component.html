@@ -1,0 +1,11 @@
+<div class="cateForm">
+  <h1 class="marginForm nameCatego">Categoria</h1>
+  <form class="cateForm_form">
+      <input type="text" id="name" placeholder="Nome da Categoria">
+      <app-hint inputLength="{{binding.length}}"></app-hint>
+      <div class="buttonCatego">
+          <app-button tipo="cancelar" nome="Cancelar" (cancelar)="onCancelar()"></app-button>
+          <app-button tipo="criar" nome="Criar" (criar)="onCriar()"></app-button>
+      </div>
+  </form>
+</div>

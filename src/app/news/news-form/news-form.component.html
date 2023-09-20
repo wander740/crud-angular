@@ -1,0 +1,18 @@
+<div class="newsForm">
+  <h1 class="marginForm nameNews">News</h1>
+  <form class="newsForm_form">
+      <input type="text" id="name" placeholder="Nome do novo post" >
+      <app-hint></app-hint>
+
+      <label for="">Categoria</label><br>
+      <select>
+        <option>front-end</option>
+        <option>back-end</option>
+      </select>
+
+      <div class="buttonNews">
+          <app-button tipo="cancelar" nome="Cancelar" (cancelar)="onCancelar()"></app-button>
+          <app-button tipo="criar" nome="Criar"></app-button>
+      </div>
+  </form>
+</div>

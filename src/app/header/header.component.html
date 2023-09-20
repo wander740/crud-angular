@@ -1,0 +1,27 @@
+<header>
+  <i #menu class="material-icons menu" alt="menu" (click)="clickMenu()">menu</i>
+
+  <span class="title" [routerLink]="['news']">NEWS</span>
+
+  <div class="right">
+    <ul class="menuRight">
+      <li [routerLink]="['news/newCategoria']">CADASTRAR CATEGORIAS</li>
+      <li [routerLink]="['news/newNoticias']">CADASTRAR NOTÍCIAS</li>
+    </ul>
+
+    <form class="divBuscar">
+      <i class="material-icons search" alt="search">search</i>
+      <input type="text" name="search" placeholder="Buscar...">
+    </form>
+
+    <i class="material-icons searchSimple" alt="search">search</i>
+
+  </div>
+</header>
+
+<section class="menuHeght">
+  <ul [ngStyle]="{display: display}" id="menuLeft">
+    <li [routerLink]="['news/newCategoria']">CADASTRAR CATEGORIAS</li>
+    <li [routerLink]="['news/newNoticias']">CADASTRAR NOTÍCIAS</li>
+  </ul>
+</section>

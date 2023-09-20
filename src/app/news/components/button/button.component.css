@@ -1,0 +1,29 @@
+.borderButtom{
+  border: none;
+  border-radius: 0.5rem;
+  width: 5rem;
+  height: 3rem;
+  padding: 1rem;
+  margin: 2px 5px;
+  cursor: pointer;
+}
+
+.cancelar{
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  color: #0bc466;
+  border: 1px solid #0bc466;
+}
+
+.criar{
+  color: #fff;
+  background-color: #0bc466;
+  border: 1px solid #50ec9e;
+}
+
+.deletar{
+  border-color: #e8273b;
+  color: #FFF;
+  background-color: #ed5565;
+}
