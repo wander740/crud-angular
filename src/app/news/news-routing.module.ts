@@ -6,6 +6,7 @@ import { CategoryFormComponent } from './category-form/category-form.component';
 
 const routes: Routes = [
   {path: '', component: NewsComponent},
+  {path: 'searchNews/:word', component: NewsComponent},
   {path: 'newNoticias', component: NewsFormComponent},
   {path: 'newCategoria', component: CategoryFormComponent}
 ];

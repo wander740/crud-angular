@@ -11,7 +11,7 @@
 
     <form class="divBuscar">
       <i class="material-icons search" alt="search">search</i>
-      <input type="text" name="search" placeholder="Buscar...">
+      <input type="text" name="search" placeholder="Buscar..." [(ngModel)]="searchWord" (keyup.enter)="search()">
     </form>
 
     <i class="material-icons searchSimple" alt="search">search</i>

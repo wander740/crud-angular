@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   display = 'none';
+  searchWord: string = '';
 
   constructor(
     private router: Router
@@ -17,6 +18,11 @@ export class HeaderComponent {
 
   clickMenu(){
     this.display = this.display == 'none' ? 'block' : 'none';
+  }
+
+  search(){
+    console.log("Aqui: " + this.searchWord);
+    this.router.navigate(['news/searchNews', this.searchWord]);
   }
 
   @HostListener('window:resize', ['$event'])

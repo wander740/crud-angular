@@ -1,18 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { first } from 'rxjs';
+
 import { Post } from '../../model/post';
-import { delay, first } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
 
-  private readonly API = '/assets/posts.json';
+  //private readonly API = 'https://spring-api-crud-production.up.railway.app/api/news';
+  private readonly API = 'api/news';
 
   constructor(private httpClient: HttpClient) { }
 
-  list() {
-    return this.httpClient.get<Post[]>(this.API).pipe(first(), delay(2000));
+  list(word: string | null) {
+    return this.httpClient.get<Post[]>(this.API + (word != null ? `/searchByName?title=${word}`: '')).pipe(first());
   }
 }
