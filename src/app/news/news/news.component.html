@@ -1,25 +1,8 @@
-<div class="content">
-  <div class="new">
-    <p class="newTitle">5 Ways To Make Your Bbq A Memorable Family Event</p>
+<div *ngIf="posts$ | async as posts; else loading">
 
-    <p class="newDate">24 Jun, 25</p>
-  </div>
+  <app-news-list [posts]="posts" ></app-news-list>
 
-  <div class="new">
-    <p class="newTitle">5 Ways To Make Your Bbq A Memorable Family Event</p>
-
-    <p class="newDate">24 Jun, 25</p>
-  </div>
-
-  <div class="new">
-    <p class="newTitle">5 Ways To Make Your Bbq A Memorable Family Event</p>
-
-    <p class="newDate">24 Jun, 25</p>
-  </div>
-
-  <div class="new">
-    <p class="newTitle">5 Ways To Make Your Bbq A Memorable Family Event</p>
-
-    <p class="newDate">24 Jun, 25</p>
-  </div>
 </div>
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>

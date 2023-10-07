@@ -1,0 +1,10 @@
+<div class="content">
+  <div class="new" *ngFor="let n of posts">
+    <p class="newTitle">{{ n.title }}</p>
+    <p class="newText">{{ n.text | shorten }}</p>
+    <div class="content_footer">
+      <p class="newDate">{{ n.creationDate }}</p>
+      <p class="newCategory">{{ n.category_title }}</p>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,9 @@ import { HintComponent } from './components/hint/hint.component';
 import { NewsFormComponent } from './news-form/news-form.component';
 import { NewsRoutingModule } from './news-routing.module';
 import { NewsComponent } from './news/news.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { NewsListComponent } from './components/news-list/news-list.component';
+import { ShortenPipe } from './pipes/shorten.pipe';
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import { NewsComponent } from './news/news.component';
     NewsFormComponent,
     CategoryFormComponent,
     ButtonComponent,
-    HintComponent
+    HintComponent,
+    SpinnerComponent,
+    NewsListComponent,
+    ShortenPipe
   ],
   imports: [
     CommonModule,
