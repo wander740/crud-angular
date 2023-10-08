@@ -1,8 +1,10 @@
-import { Observable, catchError, of } from 'rxjs';
-import { Component, DoCheck, OnChanges, OnInit } from '@angular/core';
-import { Post } from '../model/post';
+import { MessagesService } from './../services/messages/messages.service';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, Observable, of } from 'rxjs';
+
+import { Post } from '../model/Post';
 import { PostsService } from '../services/posts/posts.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -16,7 +18,10 @@ export class NewsComponent{
   constructor(
     private postsService: PostsService,
     private route: ActivatedRoute,
+    private router: Router,
+    private messagesService: MessagesService
   ){
+    this.messagesService.clearError();
     this.getNews();
   }
 
@@ -25,11 +30,14 @@ export class NewsComponent{
       this.word = routeParams.get('word');
       this.posts$ = this.postsService.list(this.word).pipe(
         catchError(err => {
-          // TODO: implementar mensagem de erro
-          console.log("Erro")
+          this.messagesService.addError("Erro no Servidor")
           return of([])
         })
       );
     });
+  }
+
+  clickNews(post: Post){
+    this.router.navigate(['accessNews', post.id], {relativeTo: this.route});
   }
 }

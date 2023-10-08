@@ -1,0 +1,7 @@
+<div *ngIf="messageService.error_msg.length">
+  <div *ngFor="let m of messageService.error_msg" class="alerta err">{{m}}</div>
+</div>
+
+<div *ngIf="messageService.success_msg.length">
+  <div *ngFor="let m of messageService.success_msg" class="alerta sucesso">{{m}}</div>
+</div>

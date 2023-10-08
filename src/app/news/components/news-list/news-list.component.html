@@ -1,9 +1,9 @@
 <div class="content">
-  <div class="new" *ngFor="let n of posts">
+  <div class="new" *ngFor="let n of posts" (click)="onClick(n)">
     <p class="newTitle">{{ n.title }}</p>
     <p class="newText">{{ n.text | shorten }}</p>
     <div class="content_footer">
-      <p class="newDate">{{ n.creationDate }}</p>
+      <p class="newDate">{{ n.creationDate | dateFormat }}</p>
       <p class="newCategory">{{ n.category_title }}</p>
     </div>
   </div>

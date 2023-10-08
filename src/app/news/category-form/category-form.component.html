@@ -1,11 +1,12 @@
+<app-messages></app-messages>
 <div class="cateForm">
   <h1 class="marginForm nameCatego">Categoria</h1>
-  <form class="cateForm_form">
-      <input type="text" id="name" placeholder="Nome da Categoria">
-      <app-hint inputLength="{{binding.length}}"></app-hint>
+  <form [formGroup]="form" class="cateForm_form">
+      <input type="text" id="name" placeholder="Nome da Categoria" formControlName="title" #title>
+      <app-hint inputLength="{{title.value.length}}"></app-hint>
       <div class="buttonCatego">
-          <app-button tipo="cancelar" nome="Cancelar" (cancelar)="onCancelar()"></app-button>
-          <app-button tipo="criar" nome="Criar" (criar)="onCriar()"></app-button>
+          <app-button tipo="cancelar" nome="Cancelar" (cancelar)="onCancel()"></app-button>
+          <app-button tipo="criar" nome="Criar" (criar)="onSubmit()"></app-button>
       </div>
   </form>
 </div>

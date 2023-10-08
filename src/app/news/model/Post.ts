@@ -1,6 +1,6 @@
 export interface Post{
   id: number;
-  creationDate: string;
+  creationDate: Date;
   title: string;
   text: string;
   category_id: number;

@@ -4,34 +4,39 @@
     "title" : "5 Ways To Make Your Bbq A Memorable Family Event",
     "text" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio accusantium ullam, laboriosam porro fuga at assumenda nam labore temporibus vel magni minus culpa, dolorum soluta quisquam tempora laborum sit fugit!",
     "creationDate" : "24 Jun, 25",
-    "category_title": "Test"
+    "category_title": "Test",
+    "category_id": 1
   },
   {
     "id" : "1",
     "title" : "5 Ways To Make Your Bbq A Memorable Family Event",
     "text" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio accusantium ullam, laboriosam porro fuga at assumenda nam labore temporibus vel magni minus culpa, dolorum soluta quisquam tempora laborum sit fugit!",
     "creationDate" : "24 Jun, 25",
-    "category_title": "Test"
+    "category_title": "Test",
+    "category_id": 1
   },
   {
     "id" : "1",
     "title" : "5 Ways To Make Your Bbq A Memorable Family Event",
     "text" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio accusantium ullam, laboriosam porro fuga at assumenda nam labore temporibus vel magni minus culpa, dolorum soluta quisquam tempora laborum sit fugit!",
     "creationDate" : "24 Jun, 25",
-    "category_title": "Test"
+    "category_title": "Test",
+    "category_id": 1
   },
   {
     "id" : "1",
     "title" : "5 Ways To Make Your Bbq A Memorable Family Event",
     "text" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio accusantium ullam, laboriosam porro fuga at assumenda nam labore temporibus vel magni minus culpa, dolorum soluta quisquam tempora laborum sit fugit!",
     "creationDate" : "24 Jun, 25",
-    "category_title": "Test"
+    "category_title": "Test",
+    "category_id": 1
   },
   {
     "id" : "1",
     "title" : "5 Ways To Make Your Bbq A Memorable Family Event",
     "text" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio accusantium ullam, laboriosam porro fuga at assumenda nam labore temporibus vel magni minus culpa, dolorum soluta quisquam tempora laborum sit fugit!",
     "creationDate" : "24 Jun, 25",
-    "category_title": "Test"
+    "category_title": "Test",
+    "category_id": 1
   }
 ]

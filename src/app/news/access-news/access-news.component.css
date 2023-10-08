@@ -1,0 +1,25 @@
+.content{
+  max-width: 992px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.access-post-title{
+  text-align: center;
+  font-size: 3rem;
+  margin: 3rem 0;
+}
+
+.access-post-text{
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 415px){
+  .access-post-title{
+    font-size: 5rem;
+  }
+
+  .access-post-text{
+    font-size: 1.6rem;
+  }
+}

@@ -1,6 +1,8 @@
+<app-messages></app-messages>
+
 <div *ngIf="posts$ | async as posts; else loading">
 
-  <app-news-list [posts]="posts" ></app-news-list>
+  <app-news-list [posts]="posts" (clickNews)="clickNews($event)"></app-news-list>
 
 </div>
 <ng-template #loading>

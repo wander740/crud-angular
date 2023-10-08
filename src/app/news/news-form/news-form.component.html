@@ -1,18 +1,37 @@
+<app-messages></app-messages>
 <div class="newsForm">
   <h1 class="marginForm nameNews">News</h1>
-  <form class="newsForm_form">
-      <input type="text" id="name" placeholder="Nome do novo post" >
-      <app-hint></app-hint>
+  <form [formGroup]="form" class="newsForm_form">
+      <input type="text" id="name" placeholder="Titulo do post" formControlName="title" #title>
+      <app-hint inputLength="{{ title.value.length }}"></app-hint>
 
-      <label for="">Categoria</label><br>
-      <select>
-        <option>front-end</option>
-        <option>back-end</option>
-      </select>
+      <label for="conteudo">Conteudo</label><br>
+      <textarea perm_identity="conteudo" rows="12" formControlName="text"></textarea><br>
+
+      <label for="category">Categoria</label><br>
+      <div *ngIf="category$ | async as category; else withoutCategory2">
+        <div *ngIf="category.length; else withoutCategory">
+          <select formControlName="category_id">
+            <option *ngFor="let category of category" [ngValue]="category.id">
+              {{ category.title }}
+            </option>
+          </select>
+        </div>
+        <ng-template #withoutCategory>
+          <select>
+            <option>Nenhuma categoria registrada</option>
+          </select>
+        </ng-template>
+      </div>
+      <ng-template #withoutCategory2>
+        <select>
+          <option>Erro ao carregar categoria</option>
+        </select>
+      </ng-template><br>
 
       <div class="buttonNews">
           <app-button tipo="cancelar" nome="Cancelar" (cancelar)="onCancelar()"></app-button>
-          <app-button tipo="criar" nome="Criar"></app-button>
+          <app-button tipo="criar" nome="Criar" (criar)="onCriar()"></app-button>
       </div>
   </form>
 </div>
