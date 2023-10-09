@@ -45,6 +45,26 @@
   width: 100%;
 }
 
+#conteudo{
+  margin: .8rem 0;
+  width: 100%;
+  resize: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #f0f0f0;
+}
+
+.option-selected{
+  margin: .8rem 0;
+}
+
+.selected{
+  width: 50%;
+  height: 25px;
+  border-radius: 0.5rem;
+  border: 2px solid #f0f0f0;
+}
+
 @media screen and (min-width: 950px){
   .newsForm{
     width: 900px;

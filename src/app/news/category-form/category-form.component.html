@@ -5,8 +5,8 @@
       <input type="text" id="name" placeholder="Nome da Categoria" formControlName="title" #title>
       <app-hint inputLength="{{title.value.length}}"></app-hint>
       <div class="buttonCatego">
-          <app-button tipo="cancelar" nome="Cancelar" (cancelar)="onCancel()"></app-button>
-          <app-button tipo="criar" nome="Criar" (criar)="onSubmit()"></app-button>
+          <app-button tipo="cancelar" nome="Cancelar" (clickButton)="onCancel()"></app-button>
+          <app-button tipo="criar" nome="Criar" (clickButton)="onSubmit()"></app-button>
       </div>
   </form>
 </div>

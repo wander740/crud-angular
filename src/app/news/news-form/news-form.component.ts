@@ -1,41 +1,31 @@
 import { CategoryService } from './../services/category/category.service';
 import { PostsService } from './../services/posts/posts.service';
 import { MessagesService } from './../services/messages/messages.service';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, catchError, of } from 'rxjs';
 import { Category } from '../model/Category';
-import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { Post } from '../model/Post';
 
 @Component({
   selector: 'app-news-form',
   templateUrl: './news-form.component.html',
   styleUrls: ['./news-form.component.css']
 })
-export class NewsFormComponent {
+export class NewsFormComponent implements OnInit{
 
   category$: Observable<Category[]>;
-  form = this.formBuilder.group({
-    id: [0],
-    title: ['', [
-      Validators.required,
-      Validators.maxLength(4),
-      Validators.maxLength(100)
-    ]],
-    text: ['', [
-      Validators.required,
-      Validators.minLength(4),
-      Validators.maxLength(5000)
-    ]],
-    category_id: [1, [Validators.required]]
-  });
+  form!: FormGroup;
+  post$!: Observable<Post>;
 
   constructor(
     private router: Router,
     private messagesService: MessagesService,
     private postsService: PostsService,
     private categoryService: CategoryService,
-    private formBuilder: NonNullableFormBuilder
+    private formBuilder: NonNullableFormBuilder,
+    private route: ActivatedRoute,
   ){
     this.messagesService.clearError();
     this.messagesService.clearSuccess();
@@ -48,11 +38,31 @@ export class NewsFormComponent {
     );
   }
 
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.post$ = this.postsService.loadById(id as string);
+    this.form = this.formBuilder.group({
+      id: [0],
+      title: ['', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(100)
+      ]],
+      text: ['', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(5000)
+      ]],
+      category_id: [1, [Validators.required]]
+    });
+  }
+
   onCancelar(){
     this.router.navigate(['']);
   }
 
   onCriar(){
+    console.log(this.form)
     if(this.form.valid){
       this.postsService.save(this.form.value).subscribe({
         next: (data) => this.onSucess(), error: (error) => this.onError()

@@ -19,7 +19,8 @@ export class NewsComponent{
     private postsService: PostsService,
     private route: ActivatedRoute,
     private router: Router,
-    private messagesService: MessagesService
+    private messagesService: MessagesService,
+    private service: PostsService
   ){
     this.messagesService.clearError();
     this.getNews();
@@ -39,5 +40,15 @@ export class NewsComponent{
 
   clickNews(post: Post){
     this.router.navigate(['accessNews', post.id], {relativeTo: this.route});
+  }
+
+  deleteNews(post: Post){
+    console.log('deletar')
+    this.service.remove(post.id);
+  }
+
+  updateNews(post: Post){
+    console.log('atualizar')
+    this.router.navigate(['edit', post.id], {relativeTo: this.route});
   }
 }

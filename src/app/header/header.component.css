@@ -79,10 +79,20 @@ header{
 
 .searchSimple{
   margin-left: 2px;
-  display: block;
 }
 
-@media screen and (min-width: 576px){
+.divBuscar-hidden{
+  flex-direction: row;
+  align-items: center;
+}
+
+@media screen and (min-width: 740px){
+  .divBuscar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
   .menuHeght{
     display: none;
   }
@@ -94,17 +104,5 @@ header{
   .menuRight{
     display: flex;
     flex-direction: row;
-  }
-}
-
-@media screen and (min-width: 740px){
-  .divBuscar{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .searchSimple{
-    display: none;
   }
 }

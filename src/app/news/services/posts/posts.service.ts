@@ -10,8 +10,8 @@ import { Post } from '../../model/Post';
 export class PostsService {
 
   //private readonly API = 'https://spring-api-crud-production.up.railway.app/api/news';
-  private readonly API = 'api/news';
-  //private readonly API = 'assets/posts.json';
+  //private readonly API = 'api/news';
+  private readonly API = 'assets/posts.json';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -36,5 +36,9 @@ export class PostsService {
 
   create(record: Partial<Post>){
     return this.httpClient.post<Post>(this.API, record).pipe(first());
+  }
+
+  remove(id: number){
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
   }
 }

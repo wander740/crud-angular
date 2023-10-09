@@ -4,13 +4,13 @@
   grid-template-columns: 1fr;
 }
 
-@media screen and (min-width: 380px){
+@media screen and (min-width: 460px){
   .content{
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media screen and (min-width: 576px){
+@media screen and (min-width: 670px){
   .content{
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -33,12 +33,16 @@
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
-  cursor: pointer;
 }
 
 .newTitle{
   padding: .8rem;
   width: 100%;
+  cursor: pointer;
+}
+
+.newTitle:hover{
+  text-decoration: underline;
 }
 
 .newText{
@@ -64,4 +68,15 @@
 
 .newCategory{
   padding: .8rem;
+}
+
+.tyneButton{
+  width: 2rem;
+  height: 1rem;
+}
+
+.buttons{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

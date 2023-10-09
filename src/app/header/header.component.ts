@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   display = 'none';
+  searchDiv = 'none';
+  iconSearch = 'block';
   searchWord: string = '';
 
   constructor(
@@ -20,6 +22,11 @@ export class HeaderComponent {
     this.display = this.display == 'none' ? 'block' : 'none';
   }
 
+  clickSearch(){
+    this.iconSearch = this.iconSearch == 'block' ? 'none' : 'block';
+    this.searchDiv = this.searchDiv == 'none' ? 'flex' : 'none';
+  }
+
   search(){
     console.log("Aqui: " + this.searchWord);
     this.router.navigate(['news/searchNews', this.searchWord]);
@@ -27,8 +34,13 @@ export class HeaderComponent {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
-    if(event.target.innerWidth > 576){
+    if(event.target.innerWidth > 740){
       this.display = 'none';
+      this.iconSearch = 'none';
+      this.searchDiv = 'none';
+    }
+    if(event.target.innerWidth <= 740){
+      this.iconSearch = 'block';
     }
   }
 }

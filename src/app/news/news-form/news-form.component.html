@@ -6,32 +6,34 @@
       <app-hint inputLength="{{ title.value.length }}"></app-hint>
 
       <label for="conteudo">Conteudo</label><br>
-      <textarea perm_identity="conteudo" rows="12" formControlName="text"></textarea><br>
+      <textarea id="conteudo" perm_identity="conteudo" rows="12" formControlName="text"></textarea><br>
 
       <label for="category">Categoria</label><br>
-      <div *ngIf="category$ | async as category; else withoutCategory2">
-        <div *ngIf="category.length; else withoutCategory">
-          <select formControlName="category_id">
-            <option *ngFor="let category of category" [ngValue]="category.id">
-              {{ category.title }}
-            </option>
-          </select>
-        </div>
-        <ng-template #withoutCategory>
-          <select>
-            <option>Nenhuma categoria registrada</option>
-          </select>
-        </ng-template>
-      </div>
-      <ng-template #withoutCategory2>
-        <select>
-          <option>Erro ao carregar categoria</option>
-        </select>
-      </ng-template><br>
 
+      <div class="option-selected">
+        <div *ngIf="category$ | async as category; else withoutCategory2">
+          <div *ngIf="category.length; else withoutCategory">
+            <select class="selected" formControlName="category_id">
+              <option *ngFor="let category of category" [ngValue]="category.id">
+                {{ category.title }}
+              </option>
+            </select>
+          </div>
+          <ng-template #withoutCategory>
+            <select class="selected">
+              <option>Nenhuma categoria registrada</option>
+            </select>
+          </ng-template>
+        </div>
+        <ng-template #withoutCategory2>
+          <select class="selected">
+            <option>Erro ao carregar categoria</option>
+          </select>
+        </ng-template><br>
+      </div>
       <div class="buttonNews">
-          <app-button tipo="cancelar" nome="Cancelar" (cancelar)="onCancelar()"></app-button>
-          <app-button tipo="criar" nome="Criar" (criar)="onCriar()"></app-button>
+          <app-button tipo="cancelar" nome="Cancelar" (clickButton)="onCancelar()"></app-button>
+          <app-button tipo="criar" nome="Criar" (clickButton)="onCriar()"></app-button>
       </div>
   </form>
 </div>

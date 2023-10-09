@@ -11,17 +11,9 @@ export class ButtonComponent {
   @Input()
   nome: string = 'Cancelar';
 
-  @Output() criar = new EventEmitter(false);
-  @Output() deletar = new EventEmitter(false);
-  @Output() cancelar = new EventEmitter(false);
-
+  @Output() clickButton = new EventEmitter(false);
+  
   onClick(){
-    if(this.tipo == 'criar'){
-      this.criar.emit(true);
-    }else if(this.tipo == 'deletar'){
-      this.deletar.emit(true);
-    }else{
-      this.cancelar.emit(true);
-    }
+    this.clickButton.emit(true);
   }
 }

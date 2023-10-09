@@ -1,10 +1,14 @@
 <div class="content">
-  <div class="new" *ngFor="let n of posts" (click)="onClick(n)">
-    <p class="newTitle">{{ n.title }}</p>
+  <div class="new" *ngFor="let n of posts">
+    <p class="newTitle" (click)="onClick(n)">{{ n.title }}</p>
     <p class="newText">{{ n.text | shorten }}</p>
     <div class="content_footer">
       <p class="newDate">{{ n.creationDate | dateFormat }}</p>
       <p class="newCategory">{{ n.category_title }}</p>
+    </div>
+    <div class="buttons">
+      <app-button tipo="deletar" nome="Deletar" (clickButton)="onDelete(n)"></app-button>
+      <app-button tipo="atualizar" nome="Atualizar" (clickButton)="onUpdate(n)"></app-button>
     </div>
   </div>
 </div>

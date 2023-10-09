@@ -14,7 +14,12 @@
       <input type="text" name="search" placeholder="Buscar..." [(ngModel)]="searchWord" (keyup.enter)="search()">
     </form>
 
-    <i class="material-icons searchSimple" alt="search">search</i>
+    <i [ngStyle]="{display: iconSearch}" class="material-icons searchSimple" alt="search" (click)="clickSearch()">search</i>
+
+    <form [ngStyle]="{ display: searchDiv}" class="divBuscar divBuscar-hidden">
+      <i class="material-icons search" alt="search">search</i>
+      <input type="text" name="search" placeholder="Buscar..." [(ngModel)]="searchWord" (keyup.enter)="search()">
+    </form>
 
   </div>
 </header>

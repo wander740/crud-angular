@@ -1,16 +1,24 @@
 .borderButtom{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  vertical-align: middle;
+
   border: none;
   border-radius: 0.5rem;
   width: 5rem;
-  height: 3rem;
-  padding: 1rem;
+  height: 70%;
+  padding: max(0.5em, 0.5rem) max(1.5em, 1.5rem);
   margin: 2px 5px;
+
+  overflow: hidden;
+  white-space: nowrap;
   cursor: pointer;
 }
 
 .cancelar{
-  display: flex;
-  justify-content: center;
   background-color: #fff;
   color: #0bc466;
   border: 1px solid #0bc466;
@@ -26,4 +34,10 @@
   border-color: #e8273b;
   color: #FFF;
   background-color: #ed5565;
+}
+
+.atualizar{
+  background-color: #fff;
+  color: #0bc466;
+  border: 1px solid #0bc466;
 }

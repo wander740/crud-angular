@@ -9,6 +9,7 @@ const routes: Routes = [
   {path: '', component: NewsComponent},
   {path: 'searchNews/:word', component: NewsComponent},
   {path: 'newNoticias', component: NewsFormComponent},
+  {path: 'edit/:id', component: NewsFormComponent},
   {path: 'newCategoria', component: CategoryFormComponent},
   {path: 'accessNews/:id', component: AccessNewsComponent}
 ];
