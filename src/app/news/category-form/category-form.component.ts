@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CategoryService } from '../services/category/category.service';
+import { FormUtilsService } from '../services/form/form-utils.service';
 
 @Component({
   selector: 'app-category-form',
@@ -25,7 +26,8 @@ export class CategoryFormComponent {
     private router: Router,
     private formBuilder: NonNullableFormBuilder,
     private service: CategoryService,
-    private messagesService: MessagesService
+    private messagesService: MessagesService,
+    public formUtils: FormUtilsService
   ){
     this.messagesService.clearError();
     this.messagesService.clearSuccess();
@@ -41,7 +43,7 @@ export class CategoryFormComponent {
         next: (data) => this.onSucess(), error: (error) => this.onError()
       });
     }else{
-      this.onError();
+      this.formUtils.validateAllFormFields(this.form);
     }
   }
 

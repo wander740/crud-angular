@@ -9,16 +9,14 @@
       <li [routerLink]="['news/newNoticias']">CADASTRAR NOTÍCIAS</li>
     </ul>
 
-    <form class="divBuscar">
+    <form class="divBuscar divBuscar-firt">
       <i class="material-icons search" alt="search">search</i>
       <input type="text" name="search" placeholder="Buscar..." [(ngModel)]="searchWord" (keyup.enter)="search()">
     </form>
 
-    <i [ngStyle]="{display: iconSearch}" class="material-icons searchSimple" alt="search" (click)="clickSearch()">search</i>
-
-    <form [ngStyle]="{ display: searchDiv}" class="divBuscar divBuscar-hidden">
-      <i class="material-icons search" alt="search">search</i>
-      <input type="text" name="search" placeholder="Buscar..." [(ngModel)]="searchWord" (keyup.enter)="search()">
+    <form class="divBuscar divBuscar-hidden">
+      <i class="material-icons searchSimple" alt="search" (click)="clickSearch()">search</i>
+      <input [ngStyle]="{display: iconSearch}" type="text" name="search" placeholder="Buscar..." [(ngModel)]="searchWord" (keyup.enter)="search()">
     </form>
 
   </div>

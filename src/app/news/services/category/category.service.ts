@@ -9,8 +9,8 @@ import { first } from 'rxjs';
 export class CategoryService {
 
   //private readonly API = 'https://spring-api-crud-production.up.railway.app/api/category';
-  //private readonly API = 'api/category';
-  private readonly API = 'assets/category.json';
+  private readonly API = 'api/category';
+  //private readonly API = 'assets/category.json';
 
   constructor(private httpClient :HttpClient) { }
 

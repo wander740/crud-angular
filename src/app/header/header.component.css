@@ -56,8 +56,11 @@ header{
   cursor: pointer;
 }
 
-.divBuscar{
+.divBuscar-firt{
   display: none;
+}
+
+.divBuscar{
   background-color: #fff;
   border: 2px solid #f0f0f0;
   border-radius: 15px;
@@ -82,12 +85,17 @@ header{
 }
 
 .divBuscar-hidden{
+  display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 @media screen and (min-width: 740px){
-  .divBuscar{
+  .divBuscar-hidden{
+    display: none;
+  }
+
+  .divBuscar-firt{
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -42,13 +42,29 @@ export class NewsComponent{
     this.router.navigate(['accessNews', post.id], {relativeTo: this.route});
   }
 
+  refresh(){
+    this.posts$ = this.postsService.list(null).pipe(
+      catchError(err => {
+        this.messagesService.addError('Erro no servidor');
+        return of([])
+      })
+    );
+  }
+
   deleteNews(post: Post){
-    console.log('deletar')
-    this.service.remove(post.id);
+    this.service.remove(post.id).subscribe({
+      next: (data) => {
+        this.refresh();
+        this.messagesService.clearSuccess();
+        this.messagesService.addSuccess('Post removido com sucesso!');
+      }, error: (error) => {
+        this.messagesService.clearError();
+        this.messagesService.addError('Erro ao tentar remover post.');
+      }
+    });
   }
 
   updateNews(post: Post){
-    console.log('atualizar')
     this.router.navigate(['edit', post.id], {relativeTo: this.route});
   }
 }

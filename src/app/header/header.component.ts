@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   display = 'none';
-  searchDiv = 'none';
-  iconSearch = 'block';
+  iconSearch = 'none';
   searchWord: string = '';
 
   constructor(
@@ -23,8 +22,7 @@ export class HeaderComponent {
   }
 
   clickSearch(){
-    this.iconSearch = this.iconSearch == 'block' ? 'none' : 'block';
-    this.searchDiv = this.searchDiv == 'none' ? 'flex' : 'none';
+    this.iconSearch = this.iconSearch == 'none' ? 'block' : 'none';
   }
 
   search(){
@@ -37,10 +35,6 @@ export class HeaderComponent {
     if(event.target.innerWidth > 740){
       this.display = 'none';
       this.iconSearch = 'none';
-      this.searchDiv = 'none';
-    }
-    if(event.target.innerWidth <= 740){
-      this.iconSearch = 'block';
     }
   }
 }

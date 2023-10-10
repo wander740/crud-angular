@@ -1,12 +1,14 @@
-import { CategoryService } from './../services/category/category.service';
-import { PostsService } from './../services/posts/posts.service';
-import { MessagesService } from './../services/messages/messages.service';
 import { Component, OnInit } from '@angular/core';
+import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, catchError, of } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
+
 import { Category } from '../model/Category';
-import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Post } from '../model/Post';
+import { CategoryService } from './../services/category/category.service';
+import { MessagesService } from './../services/messages/messages.service';
+import { PostsService } from './../services/posts/posts.service';
+import { FormUtilsService } from '../services/form/form-utils.service';
 
 @Component({
   selector: 'app-news-form',
@@ -16,7 +18,23 @@ import { Post } from '../model/Post';
 export class NewsFormComponent implements OnInit{
 
   category$: Observable<Category[]>;
-  form!: FormGroup;
+  form = this.formBuilder.group({
+    id: [0],
+    title: ['', [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(100)
+    ]],
+    text: ['', [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(5000)
+    ]],
+    category_id: [1, [
+      Validators.required,
+      Validators.min(1)
+    ]]
+  });
   post$!: Observable<Post>;
 
   constructor(
@@ -26,6 +44,7 @@ export class NewsFormComponent implements OnInit{
     private categoryService: CategoryService,
     private formBuilder: NonNullableFormBuilder,
     private route: ActivatedRoute,
+    public formUtils: FormUtilsService
   ){
     this.messagesService.clearError();
     this.messagesService.clearSuccess();
@@ -40,20 +59,27 @@ export class NewsFormComponent implements OnInit{
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.post$ = this.postsService.loadById(id as string);
-    this.form = this.formBuilder.group({
-      id: [0],
-      title: ['', [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(100)
-      ]],
-      text: ['', [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(5000)
-      ]],
-      category_id: [1, [Validators.required]]
+    if(id != null){
+      this.postsService.loadById(id).subscribe({
+        next: (data) => this.updateForm(data), error: (error) => {
+          this.messagesService.addError('Erro ao carregar post')
+          setTimeout(() => this.returnInitial(), 2000);
+
+        }
+      });
+    }
+  }
+
+  returnInitial(){
+    this.router.navigate([''])
+  }
+
+  updateForm(n: Post){
+    this.form.setValue({
+      id: n.id,
+      title: n.title,
+      text: n.text,
+      category_id: n.category_id
     });
   }
 
@@ -68,7 +94,7 @@ export class NewsFormComponent implements OnInit{
         next: (data) => this.onSucess(), error: (error) => this.onError()
       });
     }else{
-      this.onError();
+      this.formUtils.validateAllFormFields(this.form);
     }
   }
 

@@ -5,8 +5,16 @@
       <input type="text" id="name" placeholder="Titulo do post" formControlName="title" #title>
       <app-hint inputLength="{{ title.value.length }}"></app-hint>
 
+      <div *ngIf="form.get('title')?.invalid && form.get('title')?.touched" class="msgInp">{{
+        formUtils.getErrorMessage(form, 'title')
+      }}</div>
+
       <label for="conteudo">Conteudo</label><br>
       <textarea id="conteudo" perm_identity="conteudo" rows="12" formControlName="text"></textarea><br>
+
+      <div *ngIf="form.get('text')?.invalid && form.get('text')?.touched" class="msgInp">{{
+        formUtils.getErrorMessage(form, 'text')
+      }}</div>
 
       <label for="category">Categoria</label><br>
 
@@ -23,14 +31,17 @@
             <select class="selected">
               <option>Nenhuma categoria registrada</option>
             </select>
+            <p class="msgInp">Campo obrigatório</p>
           </ng-template>
         </div>
         <ng-template #withoutCategory2>
           <select class="selected">
             <option>Erro ao carregar categoria</option>
           </select>
+          <p class="msgInp">Campo obrigatório</p>
         </ng-template><br>
       </div>
+
       <div class="buttonNews">
           <app-button tipo="cancelar" nome="Cancelar" (clickButton)="onCancelar()"></app-button>
           <app-button tipo="criar" nome="Criar" (clickButton)="onCriar()"></app-button>

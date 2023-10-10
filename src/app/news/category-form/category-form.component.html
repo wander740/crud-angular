@@ -4,6 +4,11 @@
   <form [formGroup]="form" class="cateForm_form">
       <input type="text" id="name" placeholder="Nome da Categoria" formControlName="title" #title>
       <app-hint inputLength="{{title.value.length}}"></app-hint>
+
+      <div *ngIf="form.get('title')?.invalid && form.get('title')?.touched" class="msgInp">{{
+        formUtils.getErrorMessage(form, 'title')
+      }}</div>
+
       <div class="buttonCatego">
           <app-button tipo="cancelar" nome="Cancelar" (clickButton)="onCancel()"></app-button>
           <app-button tipo="criar" nome="Criar" (clickButton)="onSubmit()"></app-button>
