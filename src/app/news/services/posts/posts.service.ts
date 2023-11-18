@@ -9,8 +9,9 @@ import { Post } from '../../model/Post';
 })
 export class PostsService {
 
+  private readonly API = 'https://16.171.4.233.nip.io/api/news';
   //private readonly API = 'https://spring-api-crud-production.up.railway.app/api/news';
-  private readonly API = 'api/news';
+  //private readonly API = 'api/news';
   //private readonly API = 'assets/posts.json';
 
   constructor(private httpClient: HttpClient) { }

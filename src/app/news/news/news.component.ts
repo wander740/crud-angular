@@ -39,7 +39,7 @@ export class NewsComponent{
   }
 
   clickNews(post: Post){
-    this.router.navigate(['accessNews', post.id], {relativeTo: this.route});
+    this.router.navigate(['news/accessNews', post.id]);
   }
 
   refresh(){
