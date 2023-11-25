@@ -1,7 +1,7 @@
-<header>
+<header (window:resize)="onResize()">
   <i #menu class="material-icons menu" alt="menu" (click)="clickMenu()">menu</i>
 
-  <span class="title" [routerLink]="['news']">NEWS</span>
+  <span class="title" [routerLink]="['news']" [ngStyle]="{display: title}">NEWS</span>
 
   <div class="right">
     <ul class="menuRight">

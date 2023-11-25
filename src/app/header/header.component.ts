@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   display = 'none';
   iconSearch = 'none';
+  title = 'block';
   searchWord: string = '';
 
   constructor(
@@ -22,19 +23,24 @@ export class HeaderComponent {
   }
 
   clickSearch(){
-    this.iconSearch = this.iconSearch == 'none' ? 'block' : 'none';
+    if(this.iconSearch == 'none'){
+      this.iconSearch = 'block';
+      this.title = 'none';
+    }else{
+      this.iconSearch = 'none';
+      this.title = 'block';
+    }
   }
 
   search(){
-    console.log("Aqui: " + this.searchWord);
     this.router.navigate(['news/searchNews', this.searchWord]);
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    if(event.target.innerWidth > 740){
+  onResize() {
+    if(window.innerWidth > 740){
       this.display = 'none';
       this.iconSearch = 'none';
+      this.title = 'block';
     }
   }
 }
